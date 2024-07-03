@@ -13,6 +13,7 @@
   using Helpers;
   using Model;
   using Model.Helpers;
+  using Model.Interfaces.Service;
   using Model.Nested;
   using NHibernate;
   using NHibernate.Context;
@@ -20,9 +21,12 @@
 
   public class UserController : SecureController
   {
-    public UserController(ISessionFactory sessionFactory) : base(sessionFactory)
-    {
-    }
+      private readonly IJamesRegistrationService _jamesRegistrationService;
+
+      public UserController(ISessionFactory sessionFactory, IJamesRegistrationService jamesRegistrationService) : base(sessionFactory)
+      {
+          _jamesRegistrationService = jamesRegistrationService;
+      }
 
     [Admin]
     public void Index()
@@ -36,23 +40,7 @@
     {
       PropertyBag.Add("item", new User());
 
-      var jamesEmployees = new List<Employee>();
-      var sqlConnectionHelper = new SqlConnectionHelper();
-
-      using (var reader = sqlConnectionHelper.ExecuteSqlQuery("james", "SELECT Id, Voornaam, Achternaam FROM Medewerker WHERE Actief = 1"))
-      {
-        while (reader.Read())
-        {
-          jamesEmployees.Add(new Employee
-          {
-            Id = (int)reader[0],
-            FirstName = reader[1].ToString(),
-            LastName = reader[2].ToString()
-          });
-        }
-      }
-
-      sqlConnectionHelper.CloseSqlConnection();
+      var jamesEmployees = _jamesRegistrationService.GetJamesEmployees();
 
       PropertyBag.Add("selectedprojects", new List<Project>());
       PropertyBag.Add("customers", session.Query<Customer>().Where(x => x.IsActive).OrderBy(x => x.Name).ToList());
@@ -70,23 +58,7 @@
     {
       var user = session.Get<User>(userId);
 
-      var jamesEmployees = new List<Employee>();
-      var sqlConnectionHelper = new SqlConnectionHelper();
-
-      using (var reader = sqlConnectionHelper.ExecuteSqlQuery("james", "SELECT Id, Voornaam, Achternaam FROM Medewerker WHERE Actief = 1"))
-      {
-        while (reader.Read())
-        {
-          jamesEmployees.Add(new Employee
-          {
-            Id = (int)reader[0],
-            FirstName = reader[1].ToString(),
-            LastName = reader[2].ToString()
-          });
-        }
-      }
-
-      sqlConnectionHelper.CloseSqlConnection();
+      var jamesEmployees = _jamesRegistrationService.GetJamesEmployees();
 
       PropertyBag.Add("item", user);
       PropertyBag.Add("selectedprojects", user.Projects.Select(x => x.Project).ToList());

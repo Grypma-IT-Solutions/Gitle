@@ -1,8 +1,10 @@
 ﻿namespace Gitle.Service
 {
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
     using System.Data.SqlClient;
+    using Gitle.Model.James;
     using Model.Interfaces.Service;
     using NHibernate;
 
@@ -78,6 +80,30 @@
 
             return result;
         }
+
+        public IList<Employee> GetJamesEmployees()
+        {
+            var result = new List<Employee>();
+            
+            using (var reader = ExecuteSqlQuery("james", "SELECT Id, Voornaam, Achternaam FROM Medewerker WHERE Actief = 1"))
+            {
+                while (reader.Read())
+                {
+                    result.Add(new Employee
+                    {
+                        Id = (int)reader[0],
+                        FirstName = reader[1].ToString(),
+                        LastName = reader[2].ToString()
+                    });
+                }
+            }
+
+            CloseSqlConnection();
+
+            return result;
+
+        }
+
 
         private SqlConnection _connection;
 

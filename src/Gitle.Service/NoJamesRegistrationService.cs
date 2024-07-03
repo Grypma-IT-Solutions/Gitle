@@ -1,7 +1,9 @@
 ﻿namespace Gitle.Service
 {
     using System;
+    using System.Collections.Generic;
     using Model.Interfaces.Service;
+    using Model.James;
 
     public class NoJamesRegistrationService : IJamesRegistrationService
     {
@@ -15,6 +17,11 @@
         public int GetTotalMinutesForEmployee(int jamesEmployeeId, DateTime day)
         {
             return 0;
+        }
+
+        public IList<Employee> GetJamesEmployees()
+        {
+            return new List<Employee>();
         }
 
         #endregion
