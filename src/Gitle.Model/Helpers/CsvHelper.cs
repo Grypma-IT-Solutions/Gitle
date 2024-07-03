@@ -116,6 +116,7 @@
                                           "Projectnummer",
                                           "Project",
                                           "Taak",
+                                          "Omschrijving",
                                           "Billable",
                                           "Opmerking");
 
@@ -133,6 +134,7 @@
                                       booking.Project.Number,
                                       booking.Project.Name,
                                       issueNumber,
+                                      booking.Issue.Name,
                                       booking.Unbillable ? "Nee" : "Ja",
                                       booking.Comment
                     );
