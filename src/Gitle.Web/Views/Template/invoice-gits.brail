@@ -1,0 +1,167 @@
+﻿<style>
+  body {
+    font-family: 'Calibri';
+    font-weight: lighter;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-family: 'Calibri';
+  }
+
+
+  .right {
+    text-align: right;
+  }
+
+  .invoice-details {
+    margin-left: 1em;
+    line-height: 1.5em;
+  }
+
+    .invoice-details strong {
+      font-weight: bold;
+    }
+
+  table {
+    width: 100%;
+  }
+
+    table#unbillable {
+      border-top: 1px solid #000;
+    }
+
+    table th {
+      text-align: left;
+      padding: 0.8em 1em;
+      border-bottom: 1px solid #000;
+      font-weight: normal;
+    }
+
+    table td {
+      padding: 0.5em 1em;
+    }
+
+    table .spacer {
+      height: 1em;
+    }
+
+    table .spacerline {
+      border-top: 1px solid #000;
+      padding: 0;
+      height: 1px;
+    }
+
+  td.totalname {
+    padding-top: 0.8em;
+  }
+
+  td.total {
+    padding-top: 0.8em;
+  }
+
+  hr {
+    border-color: #000;
+  }
+
+  .footer {
+    margin-top: 2em;
+    line-height: 1.5em;
+    text-align: center;
+    font-size: 0.8em;
+    font-style: italic;
+  }
+
+    .footer span {
+      margin: 0 0.8em;
+    }
+</style>
+
+<p class="right">
+  <img src="${webPath}/Content/images/gitslogo.png" width="180" />
+</p>
+
+<h1>BIJLAGE</h1>
+<p>Delft, ${invoice.CreatedAt.ToString("dd-MM-yyyy")}</p>
+
+<p class="invoice-details">
+  Factuurnummer: ${invoice.Number}<br />
+  Factuurdatum: ${invoice.CreatedAt.ToString("dd-MM-yyyy")}<br />
+  <% if invoice.Project.Number > 0: %>
+  Projectnummer: ${?invoice.Project.Number}<br />
+  <% end %>
+  Project: ${invoice.Project.Name}<br />
+  Uurprijs: &euro; ${invoice.HourPrice.ToString("#0.00")}
+</p>
+
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <th style="width: 8%;" class="right">Aantal</th>
+      <th style="width: 72%;">Omschrijving</th>
+      <th style="width: 10%;" class="right">Stuksprijs</th>
+      <th style="width: 10%;" class="right">Bedrag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for line in invoice.BillableLines: %>
+    <tr>
+      <td class="right">${line.Hours.ToString("#0.00")}</td>
+      <td>${line.Description}</td>
+      <td class="right">${invoice.HourPrice.ToString("#0.00")}</td>
+      <td class="right">${line.Price.ToString("#0.00")}</td>
+    </tr>
+    <% end %>
+    <tr>
+      <td colspan="4" class="spacerline"></td>
+    </tr>
+    <% for line in invoice.Corrections: %>
+    <tr>
+      <td class="right"></td>
+      <td>${line.Description}</td>
+      <td class="right">${line.Price.ToString("#0.00")}</td>
+      <td class="right">${line.Price.ToString("#0.00")}</td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" class="spacerline"></td>
+    </tr>
+    <tr>
+      <td class="right">${invoice.TotalBillableHours.ToString("#0.00")}</td>
+      <td colspan="2" class="right totalname">Totaal &euro;</td>
+      <td class="right total">${invoice.TotalExclVat.ToString("#0.00")}</td>
+    </tr>
+  </tfoot>
+</table>
+
+<% if invoice.UnbillableLines.Count > 0: %>
+<p class="invoice-details">
+  <strong>Niet doorbelaste uren</strong>
+</p>
+<table id="unbillable" cellspacing="0">
+  <tbody>
+    <% for line in invoice.UnbillableLines: %>
+    <tr>
+      <td style="width: 8%;" class="right">${line.Hours.ToString("#0.00")}</td>
+      <td style="width: 92%;">${line.Description}</td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2" class="spacerline"></td>
+    </tr>
+    <tr>
+      <td class="right">${invoice.TotalUnbillableHours.ToString("#0.00")}</td>
+    </tr>
+  </tfoot>
+</table>
+<% end %>
+<p>
+  ${invoice.Remarks}
+</p>
+<hr />
+<p>Alle bedragen zijn excl. 21% BTW.</p>
+<hr />
