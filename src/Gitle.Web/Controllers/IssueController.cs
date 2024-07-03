@@ -27,14 +27,12 @@
         protected ISettingService SettingService { get; }
 
         private readonly ISessionFactory sessionFactory;
-        private readonly IEntryClient entryClient;
         private readonly IEmailService emailService;
 
-        public IssueController(ISessionFactory sessionFactory, IEntryClient entryClient, ISettingService settingService, IEmailService emailService) : base(sessionFactory)
+        public IssueController(ISessionFactory sessionFactory, ISettingService settingService, IEmailService emailService) : base(sessionFactory)
         {
             SettingService = settingService;
             this.sessionFactory = sessionFactory;
-            this.entryClient = entryClient;
             this.emailService = emailService;
         }
 
