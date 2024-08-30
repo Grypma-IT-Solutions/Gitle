@@ -21,12 +21,12 @@
   <link rel="stylesheet" href="${Fingerprint.Tag('/Content/stylesheets/vendor/foundation.datepicker.css')}">
   <link rel="stylesheet" href="${Fingerprint.Tag('/Content/stylesheets/app.css')}">
   <link rel="stylesheet" href="${Fingerprint.Tag('/Content/stylesheets/chosen.css')}">
-  <link rel="stylesheet" href="${Fingerprint.Tag('/Content/javascript/vendor/jqueryui/jquery-ui.css')}">
+  <link rel="stylesheet" href="${Fingerprint.Tag('/Content/javascript/vendor/jquery-ui-1.14.0/jquery-ui.css')}">
   <link rel="stylesheet" href="${Fingerprint.Tag('/Content/javascript/vendor/fullcalendar/fullcalendar.css')}">
   <link rel="stylesheet" href="${Fingerprint.Tag('/Content/javascript/vendor/scheduler/scheduler.css')}">
   <link rel="stylesheet" href="${Fingerprint.Tag('/Content/vendor/DataTables-1.10.13/css/jquery.dataTables.min.css')}">
 
-  <script src="${Fingerprint.Tag('/Content/javascript/vendor/jquery.js')}"> </script>
+  <script src="${Fingerprint.Tag('/Content/javascript/vendor/jquery-3.7.1.min.js')}"> </script>
   <script>jQuery.migrateMute = true;</script>
   <script src="${Fingerprint.Tag('/Content/javascript/vendor/jquery.migrate.js')}"></script>
   <script src="${Fingerprint.Tag('/Content/javascript/vendor/custom.modernizr.js')}"> </script>
@@ -40,7 +40,7 @@
   <script src="${Fingerprint.Tag('/Content/javascript/vendor/Sortable.min.js')}"> </script>
   <script src="${Fingerprint.Tag('/Content/javascript/vendor/foundation.datepicker.js')}"> </script>
   <script src="${Fingerprint.Tag('/Content/javascript/vendor/date.js')}"> </script>
-  <script src="${Fingerprint.Tag('/Content/javascript/vendor/jqueryui/jquery-ui.js')}"></script>
+  <script src="${Fingerprint.Tag('/Content/javascript/vendor/jquery-ui-1.14.0/jquery-ui.js')}"></script>
   <script src="${Fingerprint.Tag('/Content/javascript/vendor/fullcalendar/lib/moment.min.js')}"></script>
   <script src="${Fingerprint.Tag('/Content/javascript/vendor/fullcalendar/fullcalendar.js')}"></script>
   <script src="${Fingerprint.Tag('/Content/javascript/vendor/scheduler/scheduler.js')}"></script>

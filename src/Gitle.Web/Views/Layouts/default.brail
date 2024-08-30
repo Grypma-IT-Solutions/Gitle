@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${Fingerprint.Tag('/Content/stylesheets/app.css')}">
 
     <script src="${Fingerprint.Tag('/Content/javascript/vendor/custom.modernizr.js')}"></script>
-    <script src="${Fingerprint.Tag('/Content/javascript/vendor/jquery.js')}"> </script>
+    <script src="${Fingerprint.Tag('/Content/javascript/vendor/jquery-3.7.1.min.js')}"> </script>
   </head>
   <body>
     <div class="top-bar">
