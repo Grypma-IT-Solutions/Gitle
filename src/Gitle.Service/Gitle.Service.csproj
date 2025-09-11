@@ -67,13 +67,13 @@
       <HintPath>..\packages\Castle.Core.5.1.1\lib\net462\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.MonoRail.Framework, Version=0.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\CustomMonorail2.2.0.0.7\lib\net40\Castle.MonoRail.Framework.dll</HintPath>
+      <HintPath>..\packages\CustomMonorail2.2.0.0.6\lib\net40\Castle.MonoRail.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Castle.MonoRail.Views.Brail, Version=0.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\CustomMonorail2.2.0.0.7\lib\net40\Castle.MonoRail.Views.Brail.dll</HintPath>
+      <HintPath>..\packages\CustomMonorail2.2.0.0.6\lib\net40\Castle.MonoRail.Views.Brail.dll</HintPath>
     </Reference>
     <Reference Include="Castle.MonoRail.WindsorExtension, Version=0.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\CustomMonorail2.2.0.0.7\lib\net40\Castle.MonoRail.WindsorExtension.dll</HintPath>
+      <HintPath>..\packages\CustomMonorail2.2.0.0.6\lib\net40\Castle.MonoRail.WindsorExtension.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor, Version=6.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.6.0.0\lib\net462\Castle.Windsor.dll</HintPath>
