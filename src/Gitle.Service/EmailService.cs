@@ -122,15 +122,19 @@
 
     public void SendCertificateReminderNotification(CertificateInfo certificateInfo)
     {
-      var message = new MailMessage(_sourceAddress, "systeembeheer@auxilium.nl, jkleinveld@auxilium.nl, jbakker@auxilium.nl")
-      {
-        Subject = string.Format("Gitle: Certificaat verloopt"),
-        IsBodyHtml = true
-      };
+        var certificateReminderReceivers = ConfigurationManager.AppSettings["certificateReminderReceivers"];
 
-      message.Body = GetBody("certificate-info", new Hashtable { { "webPath", _webPath }, { "provider", _provider }, { "certificate", certificateInfo } });
+        if (certificateReminderReceivers != null && !certificateReminderReceivers.Any()) return;
 
-      SendMessage(message);
+        var message = new MailMessage(_sourceAddress, certificateReminderReceivers)
+        {
+            Subject = string.Format("Gitle: Certificaat verloopt"),
+            IsBodyHtml = true
+        };
+
+        message.Body = GetBody("certificate-info", new Hashtable { { "webPath", _webPath }, { "provider", _provider }, { "certificate", certificateInfo } });
+
+        SendMessage(message);
     }
 
     #endregion
