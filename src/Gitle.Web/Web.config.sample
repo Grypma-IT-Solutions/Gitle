@@ -24,6 +24,7 @@
     <add key="provider" value="Auxilium" />
     <add key="provider_phone" value="015 - 26 123 16" />
     <add key="invoice_template" value="invoice" />
+    <add key="viewpath" value="C:\Working\Gitle\src\Gitle.Web\Views" />
     <add key="certificateReminderReceivers" value="admin@example.com, debug@example.com" />
   </appSettings>
   <connectionStrings>
