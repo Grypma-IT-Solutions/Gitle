@@ -99,7 +99,7 @@
 			</dependentAssembly>
 			<dependentAssembly>
 				<assemblyIdentity name="NHibernate" publicKeyToken="aa95f207798dfdb4" culture="neutral" />
-				<bindingRedirect oldVersion="0.0.0.0-5.5.0.0" newVersion="5.5.0.0" />
+				<bindingRedirect oldVersion="0.0.0.0-5.6.0.0" newVersion="5.6.0.0" />
 			</dependentAssembly>
 			<dependentAssembly>
 				<assemblyIdentity name="Castle.Components.Binder" publicKeyToken="407dd0808d44fbdc" culture="neutral" />
@@ -115,7 +115,7 @@
 			</dependentAssembly>
 			<dependentAssembly>
 				<assemblyIdentity name="log4net" publicKeyToken="669e0ddf0bb1aa2a" culture="neutral" />
-				<bindingRedirect oldVersion="0.0.0.0-3.2.0.0" newVersion="3.2.0.0" />
+				<bindingRedirect oldVersion="0.0.0.0-3.3.1.0" newVersion="3.3.1.0" />
 			</dependentAssembly>
 		</assemblyBinding>
 	</runtime>
